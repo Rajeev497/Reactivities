@@ -1,4 +1,5 @@
 using System;
+using Application.Activities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Persistence;
+using MediatR;
 
 namespace API
 {
@@ -39,7 +41,7 @@ namespace API
                 });
             });
             
-
+            services.AddMediatR(typeof(List.Handler).Assembly);
             services.AddControllers();
         }
 
